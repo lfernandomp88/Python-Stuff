@@ -3,18 +3,20 @@ def palabraMasRepetida(frase):
   contador = dict()
   mayor = ()
 
+  #Armar diccionario de palabras, con las veces que se ha usado cada palabra.
   for palabra in palabras:
     if(palabra in contador.keys()):
       contador[palabra]+=1
     else:
       contador[palabra]=1
   
+  #Recorremos el diccionario y vamos viendo cual es la que más se repite.
   for item in contador.items():
-    if(len(mayor)>0):
-      if(item[1]  > mayor[1]):
-        mayor = (item[0],item[1])
+    if(len(mayor)>0): #Si el diccionario NO está vacio
+      if(item[1]  > mayor[1]): #Si las veces que se ha usado la palabra actual es mayor que la última.
+        mayor = (item[0],item[1]) #Ahora la mayor es la última.
     else:
-      mayor = (item[0],item[1])
+      mayor = (item[0],item[1]) #La mayor es la actual.
 
   return mayor
   
